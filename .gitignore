@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.env
+
+# Virtual Environment
+walletfit_venv/
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# VS Code (optional)
+.vscode/
