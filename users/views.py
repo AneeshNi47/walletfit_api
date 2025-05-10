@@ -1,11 +1,20 @@
 from rest_framework import generics
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status, permissions
+from .serializers import UserSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 from .models import WalletUser
+from rest_framework.permissions import IsAuthenticated
 from .serializers import UserRegistrationSerializer
+
+
+class WalletUserViewSet(viewsets.ModelViewSet):
+    queryset = WalletUser.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class RegisterUserView(generics.CreateAPIView):

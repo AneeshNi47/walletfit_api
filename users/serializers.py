@@ -1,6 +1,12 @@
 from rest_framework import serializers
-from .models import WalletUser, UserProfile, Household
+from .models import WalletUser, UserProfile
 from django.contrib.auth.password_validation import validate_password
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WalletUser
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'role', 'household']
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
